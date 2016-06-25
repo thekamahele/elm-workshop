@@ -2,3 +2,6 @@ elm-stuff
 node_modules
 elm.js
 Auth.elm
+.DS_Store
+.idea/
+elm-stuff.zip
