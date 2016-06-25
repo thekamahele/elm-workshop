@@ -23,6 +23,7 @@ type alias ResultId =
 
 {-| TODO add a type annotation to this value
 -}
+model : Model
 model =
     { query = "tutorial"
     , results =
@@ -60,16 +61,19 @@ elmHubHeader =
 
 {-| TODO add a type annotation to this function
 -}
+view : Model -> Html a
 view model =
     div [ class "content" ]
         [ elmHubHeader
         , ul [ class "results" ]
-            [{- TODO use model.results and viewSearchResult to display results -}]
+            {- TODO use model.results and viewSearchResult to display results -}
+            (List.map (\result -> viewSearchResult result) model.results)
         ]
 
 
 {-| TODO add a type annotation to this function
 -}
+viewSearchResult : SearchResult -> Html a
 viewSearchResult result =
     li []
         [ span [ class "star-count" ] [ text (toString result.stars) ]
@@ -80,5 +84,6 @@ viewSearchResult result =
 
 {-| TODO add a type annotation to this value
 -}
+main : Html a
 main =
     view model
